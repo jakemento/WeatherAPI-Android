@@ -17,7 +17,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         buildTypes.each {
-            it.buildConfigField 'String', 'WeatherKey', WeatherKey
+            it.buildConfigField 'String', 'WEATHER_CONSUMER_KEY', WeatherConsumerKey
+            it.buildConfigField 'String', 'WEATHER_CONSUMER_SECRET', WeatherConsumerSecret
         }
     }
 }
