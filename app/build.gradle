@@ -19,6 +19,8 @@ android {
         buildTypes.each {
             it.buildConfigField 'String', 'WEATHER_CONSUMER_KEY', WeatherConsumerKey
             it.buildConfigField 'String', 'WEATHER_CONSUMER_SECRET', WeatherConsumerSecret
+            it.buildConfigField 'String', 'WEATHER_TOKEN', WeatherToken;
+            it.buildConfigField 'String', 'WEATHER_TOKEN_SECRET', WeatherTokenSecret;
         }
     }
 }
@@ -30,4 +32,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'se.akerfeldt:okhttp-signpost:1.1.0'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
