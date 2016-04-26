@@ -50,15 +50,19 @@ public class WeatherService {
                 JSONObject weatherJSON = new JSONObject(jsonData);
                 JSONArray weathersJSON = weatherJSON.getJSONArray("list");
                 String city = weatherJSON.getJSONObject("city").getString("name");
+
                 String country = weatherJSON.getJSONObject("city").getString("country");
                 int cityId = weatherJSON.getJSONObject("city").getInt("id");
                 for (int i = 0; i < weathersJSON.length(); i++) {
                     JSONObject dayJSON = weathersJSON.getJSONObject(i);
                     int dayTemp = dayJSON.getJSONObject("temp").getInt("day");
+                    String description = dayJSON.getJSONArray("weather").getJSONObject(0).getString("description");
                     int weatherId = dayJSON.getJSONArray("weather").getJSONObject(0).getInt("id");
+                    int humidity = dayJSON.getInt("humidity");
+                    int windSpeed = dayJSON.getInt("speed");
 
 
-                    Weather weather = new Weather(city, cityId, country, dayTemp);
+                    Weather weather = new Weather(city, cityId, country, dayTemp, description, humidity, windSpeed);
                     weathers.add(weather);
                 }
             }
