@@ -39,7 +39,6 @@ public class WeatherActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
         getWeathers(location);
-        mLocationTextView.setText("the city you entered is " + location + "!");
     }
 
     private void getWeathers(String location) {
@@ -62,6 +61,13 @@ public class WeatherActivity extends AppCompatActivity {
                         mListView.setAdapter(adapter);
 
                         for (Weather weather : mWeathers) {
+                            adapter.add("city: " + weather.getName());
+                            adapter.add("description: " + weather.getDescription());
+                           adapter.add("temperature: " + weather.getTemp() + "˚");
+
+                            adapter.add("wind speed " + weather.getWindSpeed()+" mph");
+
+
                             Log.d(TAG, "Temp: " + weather.getTemp());
                             Log.d(TAG, "City: "+ weather.getName());
                             Log.d(TAG, "description: " +  weather.getDescription());
@@ -74,3 +80,5 @@ public class WeatherActivity extends AppCompatActivity {
         });
     }
 }
+
+
