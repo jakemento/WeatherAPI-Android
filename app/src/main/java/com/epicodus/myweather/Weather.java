@@ -4,16 +4,29 @@ package com.epicodus.myweather;
  * Created by Guest on 4/25/16.
  */
 public class Weather {
-    private String mTemp;
+    private int mDayTemperature;
+    private String mCityName;
+    private String mCountry;
+    private int mCityId;
 
-    public Weather(String temp) {
-        this.mTemp = temp;
+    public Weather(String cityName, int cityId, String country, int dayTemp) {
+        this.mDayTemperature = dayTemp;
+        this.mCityName = cityName;
+        this.mCountry = country;
+        this.mCityId = cityId;
+
     }
 
-    public String getTemp() {
-        return mTemp;
+    public int getTemp() {
+
+        return mDayTemperature;
     }
 
+    public String getName() {
+        return mCityName;
+    }
 
-
+    public String getCountry() {
+        return mCountry;
+    }
 }
